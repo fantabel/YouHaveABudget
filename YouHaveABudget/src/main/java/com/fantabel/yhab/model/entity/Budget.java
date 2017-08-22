@@ -3,7 +3,7 @@ package com.fantabel.yhab.model.entity;
 import java.io.Serializable;
 
 import java.time.LocalDateTime;
-
+import java.util.List;
 import java.util.UUID;
 
 
@@ -13,6 +13,7 @@ public class Budget implements Serializable {
     private UUID id;
     private LocalDateTime created;
     private String name;
+    private List<Account> accounts;
     
     private static int defaultNameCounter = 1;
 
@@ -53,7 +54,15 @@ public class Budget implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-
+    
+    public void addAccount(Account account) {
+    		accounts.add(account);
+    }
+    
+    public void removeAccount(Account account) {
+    		accounts.remove(account);
+    }
+    
     @Override
     public String toString() {
         StringBuffer buffer = new StringBuffer();
