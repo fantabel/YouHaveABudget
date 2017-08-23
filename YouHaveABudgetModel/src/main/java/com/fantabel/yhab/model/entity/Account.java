@@ -6,6 +6,8 @@ import java.util.UUID;
 
 import com.fantabel.yhab.model.enumeration.AccountType;
 
+import java.util.List;
+
 public class Account implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -13,63 +15,64 @@ public class Account implements Serializable {
     private Double balance;
     private String name;
     private AccountType type;
+    private List<Transaction> transactions;
 
     private static int defaultNameCounter = 1;
-    
+
     public Account() {
-    		this(UUID.randomUUID().toString());
-    }
-    
-    public Account(String id) {
-    		this(id, "Account" + defaultNameCounter++);
-    }
-    
-    public Account(String id, String name) {
-    		this(id, name, 0d);
-    }
-    
-    public Account(String id, String name, Double balance) {
-    		this(id, name, balance, AccountType.Checking);
+        this(UUID.randomUUID());
     }
 
-    public Account(String id, String name, Double balance, AccountType type) {
-        this.id = UUID.fromString(id);
+    public Account(UUID id) {
+        this(id, "Account" + defaultNameCounter++);
+    }
+
+    public Account(UUID id, String name) {
+        this(id, name, 0d);
+    }
+
+    public Account(UUID id, String name, Double balance) {
+        this(id, name, balance, AccountType.Checking);
+    }
+
+    public Account(UUID id, String name, Double balance, AccountType type) {
+        this.id = id;
         this.balance = balance;
         this.name = name;
         this.type = type;
     }
 
-	public String getId() {
-		return id.toString();
-	}
+    public UUID getId() {
+        return id;
+    }
 
-	public void setId(String id) {
-		this.id = UUID.fromString(id);
-	}
+    public void setId(UUID id) {
+        this.id = id;
+    }
 
-	public Double getBalance() {
-		return balance;
-	}
+    public Double getBalance() {
+        return balance;
+    }
 
-	public void setBalance(Double balance) {
-		this.balance = balance;
-	}
+    public void setBalance(Double balance) {
+        this.balance = balance;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public AccountType getType() {
-		return type;
-	}
+    public AccountType getType() {
+        return type;
+    }
 
-	public void setType(AccountType type) {
-		this.type = type;
-	}
-    
-    
+    public void setType(AccountType type) {
+        this.type = type;
+    }
+
+
 }

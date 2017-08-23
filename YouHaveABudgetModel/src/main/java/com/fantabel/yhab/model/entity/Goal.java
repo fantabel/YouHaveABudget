@@ -1,11 +1,9 @@
 package com.fantabel.yhab.model.entity;
 
-import java.util.List;
 import java.util.UUID;
 
-public class Group {
+public class Goal {
     private UUID id;
-    private List<Category> categories;
 
     public UUID getId() {
         return id;

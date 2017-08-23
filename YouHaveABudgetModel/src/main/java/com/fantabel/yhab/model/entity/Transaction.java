@@ -1,11 +1,10 @@
 package com.fantabel.yhab.model.entity;
 
-import java.util.List;
 import java.util.UUID;
 
-public class Group {
+public class Transaction {
     private UUID id;
-    private List<Category> categories;
+    private Category category;
 
     public UUID getId() {
         return id;
@@ -15,4 +14,6 @@ public class Group {
         this.id = id;
     }
 
+    
+    
 }

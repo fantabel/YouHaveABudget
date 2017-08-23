@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<xmi:XMI xmlns:xmi='http://www.omg.org/spec/XMI/20131001' xmlns:uml='http://www.omg.org/spec/UML/20131001'>
+ <documentation exporter='Oracle JDeveloper' exporterVersion='12.2.1.2.0'/>
+ <uml:Package xmi:type='uml:Package' xmi:uuid='urn:uuid:dad3c05e-a91b-41d0-bfd9-69f279f671bf'
+   name='uml'
+   visibility='public'/>
+</xmi:XMI>
