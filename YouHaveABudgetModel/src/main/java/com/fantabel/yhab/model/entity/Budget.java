@@ -1,5 +1,7 @@
 package com.fantabel.yhab.model.entity;
 
+import com.fantabel.yhab.model.util.IdUtil;
+
 import java.io.Serializable;
 
 import java.time.LocalDateTime;
@@ -12,41 +14,49 @@ import java.util.UUID;
 public class Budget implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private UUID id;
-    private LocalDateTime created;
+    private Long id;
     private String name;
+    private LocalDateTime created;
     private List<Account> accounts;
     private List<Group> groups;
 
     private static int defaultNameCounter = 1;
 
     public Budget() {
-        this("Budget" + defaultNameCounter++);
-    }
-
-    public Budget(String name) {
-        this(name, LocalDateTime.now());
-    }
-
-    public Budget(String name, LocalDateTime created) {
-        this(UUID.randomUUID(), name, created);
+        this(IdUtil.getNextPositiveLong());
     }
     
-    public Budget(UUID id, String name, LocalDateTime created) {
+    public Budget(Long id) {
+        this(id, "Budget" + defaultNameCounter++);
+    }
+    
+    public Budget(Long id, String name) {
+        this(id, name, LocalDateTime.now());
+    }
+
+    public Budget(Long id, String name, LocalDateTime created) {
+        this(id, name, created, new ArrayList<Account>());
+    }
+    
+    public Budget(Long id, String name, LocalDateTime created, List<Account> accounts) {
+        this(id, name, created, accounts, new ArrayList<Group>());
+    }
+    
+    public Budget(Long id, String name, LocalDateTime created, List<Account> accounts, List<Group> groups) {
         this.id = id;
         this.name = name;
         this.created = created;
         
-        accounts = new ArrayList<Account>();
-        groups = new ArrayList<Group>();
+        this.accounts = accounts;
+        this.groups = groups;
         
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -2,59 +2,70 @@ package com.fantabel.yhab.model.entity;
 
 import java.io.Serializable;
 
-import java.util.UUID;
-
 import com.fantabel.yhab.model.enumeration.AccountType;
 
+import com.fantabel.yhab.model.util.IdUtil;
+
+import java.math.BigDecimal;
+
+import java.text.NumberFormat;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Account implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private UUID id;
-    private Double balance;
+    private Long id;
+    private BigDecimal balance;
     private String name;
     private AccountType type;
     private List<Transaction> transactions;
 
-    private static int defaultNameCounter = 1;
+    
 
     public Account() {
-        this(UUID.randomUUID());
+        this(IdUtil.getNextPositiveLong());
     }
 
-    public Account(UUID id) {
-        this(id, "Account" + defaultNameCounter++);
+    public Account(Long id) {
+        this(id, "Account" + IdUtil.getPositiveInteger(Account.class.getSimpleName()));
     }
 
-    public Account(UUID id, String name) {
-        this(id, name, 0d);
+    public Account(Long id, String name) {
+        this(id, name, BigDecimal.ZERO);
     }
 
-    public Account(UUID id, String name, Double balance) {
+    public Account(Long id, String name, BigDecimal balance) {
         this(id, name, balance, AccountType.Checking);
     }
 
-    public Account(UUID id, String name, Double balance, AccountType type) {
+    public Account(Long id, String name, BigDecimal balance, AccountType accountType) {
+        this(id, name, balance, accountType, new ArrayList<Transaction>());
+    }
+
+    public Account(Long id, String name, BigDecimal balance, AccountType type, List<Transaction> transactions) {
         this.id = id;
         this.balance = balance;
         this.name = name;
         this.type = type;
+        this.transactions = transactions;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Double getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(Double balance) {
+    public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
 
@@ -73,6 +84,34 @@ public class Account implements Serializable {
     public void setType(AccountType type) {
         this.type = type;
     }
+    
+    public void addTransaction(Transaction t) {
+        transactions.add(t);
+    }
+    
+    public boolean removeTransaction(Transaction t) {
+        return transactions.remove(t);
+    }
+    
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = new ArrayList<Transaction>(transactions);
+    }
 
-
+    public List<Transaction> getTransactions() {
+        return new ArrayList<Transaction>(transactions);
+    }
+    
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(id);
+        sb.append('\t');
+        sb.append(name);
+        sb.append('\t');
+        sb.append(NumberFormat.getCurrencyInstance().format(balance));
+        sb.append('\t');
+        sb.append(type);
+        sb.append('\t');
+        transactions.forEach(t -> sb.append(t.toString()));
+        return sb.toString();
+    }
 }
