@@ -1,4 +1,6 @@
-package com.fantabel.yhab.model.entity;
+package com.fantabel.yhab.tests.entity;
+
+import com.fantabel.yhab.model.entity.Category;
 
 import static org.junit.Assert.*;
 import org.junit.Test;

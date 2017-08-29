@@ -4,40 +4,33 @@ import com.fantabel.yhab.model.util.IdUtil;
 
 import java.io.Serializable;
 
-import java.util.UUID;
-
-public class Category implements Serializable {
+public class Payee implements Serializable {
     private static final long serialVersionUID = 1L;
-    private Long id;
-    private String name;
-    Goal goal;
+    Long id;
+    String name;
     
-    public Category() {
+    public Payee() {
         this(IdUtil.getNextPositiveLong());
     }
     
-    public Category(Long id) {
-        this(id, "Category" + 1);
+    public Payee(Long id) {
+        this(id, "Payee" + IdUtil.getPositiveInteger(Payee.class.getSimpleName()));
+        
     }
     
-    public Category(Long id, String name) {
-        this(id, name, null);
-    }
-    
-    public Category(Long id, String name, Goal goal) {
+    public Payee(Long id, String name) {
         this.id = id;
         this.name = name;
-        this.goal = goal;
-    }
-    
-    public Long getId() {
-        return id;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
-    
+
+    public Long getId() {
+        return id;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -45,22 +38,12 @@ public class Category implements Serializable {
     public String getName() {
         return name;
     }
-
-    public void setGoal(Goal goal) {
-        this.goal = goal;
-    }
-
-    public Goal getGoal() {
-        return goal;
-    }
     
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(id);
         sb.append('\t');
         sb.append(name);
-        sb.append('\n');
-        sb.append(goal != null ? goal.toString() : "No goal set");
         return sb.toString();
     }
 }
