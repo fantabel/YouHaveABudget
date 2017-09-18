@@ -1,6 +1,5 @@
-package com.fantabel.yhab.tests.entity;
+package com.fantabel.yhab.model.entity;
 
-import com.fantabel.yhab.model.entity.Transaction;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
