@@ -156,31 +156,31 @@ public class BudgetTest {
     
     @Test
     public void testAccountsGetterSetter() {
-        //return new ArrayList<Account>(accounts);
+        fail("Unimplemented");
     }
     
     @Test
     public void testAddAccount() {
-        //accounts.add(account);
+        fail("Unimplemented");
     }
     
     @Test
     public void testRemoveAccount() {
-        //accounts.remove(account);
+        fail("Unimplemented");
     }
     
     @Test
     public void testGroupsGetterSetter() {
-        //return new ArrayList<Group>(groups);
+        fail("Unimplemented");
     }
     
     @Test
     public void testAddGroup() {
-        //groups.add(group);
+        fail("Unimplemented");
     }
     
     @Test
     public void testRemoveGroup() {
-        //groups.remove(group);
+        fail("Unimplemented");
     }
 }
