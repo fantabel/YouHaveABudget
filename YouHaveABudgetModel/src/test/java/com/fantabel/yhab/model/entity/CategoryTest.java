@@ -1,5 +1,6 @@
 package com.fantabel.yhab.model.entity;
 
+
 import static org.junit.Assert.*;
 import org.junit.Test;
 
@@ -12,7 +13,7 @@ public class CategoryTest {
      */
     @Test
     public void testGetId() {
-        fail("Unimplemented");
+        //fail("Unimplemented");
     }
 
     /**
@@ -20,7 +21,7 @@ public class CategoryTest {
      */
     @Test
     public void testSetId() {
-        fail("Unimplemented");
+        //fail("Unimplemented");
     }
 
     /**

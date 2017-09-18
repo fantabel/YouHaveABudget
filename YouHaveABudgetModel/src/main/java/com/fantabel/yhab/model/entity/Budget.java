@@ -100,14 +100,14 @@ public class Budget implements Serializable {
         groups.remove(group);
     }
     
-    public void setGroups(List<Group> groups) {
-        this.groups = new ArrayList<Group>(groups);
-    }
-    
     public List<Group> getGroups() {
         return new ArrayList<Group>(groups);
     }
 
+    
+    public void setGroups(List<Group> groups) {
+        this.groups = new ArrayList<Group>(groups);
+    }
     public String toString() {
         StringBuffer buffer = new StringBuffer();
         buffer.append("id : ");

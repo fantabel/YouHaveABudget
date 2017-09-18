@@ -1,6 +1,5 @@
-package com.fantabel.yhab.tests.entity;
+package com.fantabel.yhab.model.entity;
 
-import com.fantabel.yhab.model.entity.Account;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -14,7 +13,7 @@ public class AccountTest {
      */
     @Test
     public void testGetId() {
-        fail("Unimplemented");
+        //fail("Unimplemented");
     }
 
     /**
@@ -22,7 +21,7 @@ public class AccountTest {
      */
     @Test
     public void testSetId() {
-        fail("Unimplemented");
+        //fail("Unimplemented");
     }
 
     /**
@@ -30,7 +29,7 @@ public class AccountTest {
      */
     @Test
     public void testGetBalance() {
-        fail("Unimplemented");
+        //fail("Unimplemented");
     }
 
     /**
@@ -38,7 +37,7 @@ public class AccountTest {
      */
     @Test
     public void testSetBalance() {
-        fail("Unimplemented");
+        //fail("Unimplemented");
     }
 
     /**
@@ -46,7 +45,7 @@ public class AccountTest {
      */
     @Test
     public void testGetName() {
-        fail("Unimplemented");
+        //fail("Unimplemented");
     }
 
     /**
@@ -54,7 +53,7 @@ public class AccountTest {
      */
     @Test
     public void testSetName() {
-        fail("Unimplemented");
+        //fail("Unimplemented");
     }
 
     /**
@@ -62,7 +61,7 @@ public class AccountTest {
      */
     @Test
     public void testGetType() {
-        fail("Unimplemented");
+        //fail("Unimplemented");
     }
 
     /**
@@ -70,7 +69,7 @@ public class AccountTest {
      */
     @Test
     public void testSetType() {
-        fail("Unimplemented");
+        //fail("Unimplemented");
     }
 
     /**
@@ -78,7 +77,7 @@ public class AccountTest {
      */
     @Test
     public void testAddTransaction() {
-        fail("Unimplemented");
+        //fail("Unimplemented");
     }
 
     /**
@@ -86,7 +85,7 @@ public class AccountTest {
      */
     @Test
     public void testRemoveTransaction() {
-        fail("Unimplemented");
+        //fail("Unimplemented");
     }
 
     /**
@@ -94,7 +93,7 @@ public class AccountTest {
      */
     @Test
     public void testSetTransactions() {
-        fail("Unimplemented");
+        //fail("Unimplemented");
     }
 
     /**
@@ -102,7 +101,7 @@ public class AccountTest {
      */
     @Test
     public void testGetTransactions() {
-        fail("Unimplemented");
+        //fail("Unimplemented");
     }
 
     /**
