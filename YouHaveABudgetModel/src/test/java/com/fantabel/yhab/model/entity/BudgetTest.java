@@ -1,6 +1,5 @@
 package com.fantabel.yhab.model.entity;
 
-
 import com.fantabel.yhab.model.util.IdUtil;
 
 import java.time.LocalDateTime;
@@ -144,9 +143,10 @@ public class BudgetTest {
     @Test
     public void testCreatedGetterSetter() {
         Budget budget = new Budget();
-        budget.setCreated(LocalDateTime.now());
+        LocalDateTime now = LocalDateTime.now();
+        budget.setCreated(now);
         
-        assertTrue("The date should be in the past", budget.getCreated().isBefore(LocalDateTime.now()) || 
+        assertTrue("The date should be in the past", budget.getCreated().isBefore(now) || 
                                                      budget.getCreated().isEqual(LocalDateTime.now()));
         
         LocalDateTime fiveDays = LocalDateTime.now().plusDays(5);
@@ -156,31 +156,92 @@ public class BudgetTest {
     
     @Test
     public void testAccountsGetterSetter() {
-        fail("Unimplemented");
-    }
-    
-    @Test
-    public void testAddAccount() {
-        fail("Unimplemented");
-    }
-    
-    @Test
-    public void testRemoveAccount() {
-        fail("Unimplemented");
+        Budget budget = new Budget();
+        List<Account> accounts = new ArrayList<>();
+        
+        for (int i = 0 ; i < 5 ; i++) {
+            accounts.add(new Account());
+        }
+        
+        budget.setAccounts(accounts);
+        assertNotNull("Account list should be present.", budget.getAccounts());
+        assertEquals("Account lists should be equals", accounts, budget.getAccounts());
+        assertEquals("There should be 5 accounts in the list", 5, budget.getAccounts().size());
     }
     
     @Test
     public void testGroupsGetterSetter() {
-        fail("Unimplemented");
+        Budget budget = new Budget();
+        List<Group> groups = new ArrayList<>();
+        
+        for (int i = 0 ; i < 5 ; i++) {
+            groups.add(new Group());
+        }
+        
+        budget.setGroups(groups);
+        assertNotNull("Group list should be present.", budget.getGroups());
+        assertEquals("Group lists should be equals", groups, budget.getGroups());
+        assertEquals("There should be 5 groups in the list", 5, budget.getGroups().size());
+    }
+    
+    @Test
+    public void testAddAccount() {
+        Budget budget = new Budget();
+        List<Account> accounts = new ArrayList<>();
+        
+        for (int i = 0 ; i < 5 ; i++) {
+            accounts.add(new Account());
+        }
+        
+        assertNotNull("Account list should be present.", budget.getAccounts());
+        assertEquals("There should be 5 accounts in the list", 5, budget.getAccounts().size());
+    }
+    
+    @Test
+    public void testRemoveAccount() {
+        Budget budget = new Budget();
+        List<Account> accounts = new ArrayList<>();
+        
+        for (int i = 0 ; i < 5 ; i++) {
+            accounts.add(new Account());
+        }
+        
+        budget.removeAccount(accounts.get(0));
+        
+        assertNotNull("Account list should be present.", budget.getAccounts());
+        assertEquals("There should be 4 accounts in the list", 5, budget.getAccounts().size());
     }
     
     @Test
     public void testAddGroup() {
-        fail("Unimplemented");
+        Budget budget = new Budget();
+        for (int i = 0 ; i < 5 ; i++) {
+            budget.addGroup(new Group());
+        }
+        
+        assertNotNull("Group list should be present.", budget.getGroups());
+        assertEquals("There should be 5 groups in the list", 5, budget.getGroups().size());
     }
     
     @Test
     public void testRemoveGroup() {
         fail("Unimplemented");
+    }
+    
+    @Test
+    public void testToString() {
+        Budget budget = new Budget();
+        assertNotNull("Default budget", budget.toString());
+        budget.setId(null);
+        assertNotNull("Budget Id null", budget.toString());
+        budget.setName(null);
+        assertNotNull("Budget Name null", budget.toString());
+        budget.setCreated(null);
+        assertNotNull("Budget Created null", budget.toString());
+        budget.setGroups(null);
+        assertNotNull("Default budget", budget.toString());
+        budget.setAccounts(null);
+        assertNotNull("Default budget", budget.toString());
+        
     }
 }

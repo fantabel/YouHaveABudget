@@ -75,6 +75,32 @@ public class Budget implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+    
+    public List<Account> getAccounts() {
+        return new ArrayList<>(accounts);
+    }
+    
+    public void setAccounts(List<Account> accounts) {
+        if (accounts == null) {
+            this.accounts = new ArrayList<>();
+        }
+        else {
+            this.accounts = new ArrayList<>(accounts);
+        }
+    }
+    
+    public List<Group> getGroups() {
+        return new ArrayList<>(groups);
+    }
+
+    public void setGroups(List<Group> groups) {
+        if (groups == null) {
+            this.groups = new ArrayList<>();
+        }
+        else {
+            this.groups = new ArrayList<>(groups);
+        }
+    }
 
     public void addAccount(Account account) {
         accounts.add(account);
@@ -82,14 +108,6 @@ public class Budget implements Serializable {
 
     public void removeAccount(Account account) {
         accounts.remove(account);
-    }
-    
-    public List<Account> getAccounts() {
-        return new ArrayList<Account>(accounts);
-    }
-    
-    public void setAccounts(List<Account> accounts) {
-        this.accounts = new ArrayList<Account>(accounts);
     }
     
     public void addGroup(Group group) {
@@ -100,14 +118,6 @@ public class Budget implements Serializable {
         groups.remove(group);
     }
     
-    public List<Group> getGroups() {
-        return new ArrayList<Group>(groups);
-    }
-
-    
-    public void setGroups(List<Group> groups) {
-        this.groups = new ArrayList<Group>(groups);
-    }
     public String toString() {
         StringBuffer buffer = new StringBuffer();
         buffer.append("id : ");
