@@ -193,6 +193,8 @@ public class BudgetTest {
             accounts.add(new Account());
         }
         
+        budget.setAccounts(accounts);
+        
         assertNotNull("Account list should be present.", budget.getAccounts());
         assertEquals("There should be 5 accounts in the list", 5, budget.getAccounts().size());
     }
@@ -203,7 +205,7 @@ public class BudgetTest {
         List<Account> accounts = new ArrayList<>();
         
         for (int i = 0 ; i < 5 ; i++) {
-            accounts.add(new Account());
+            budget.addAccount(new Account());
         }
         
         budget.removeAccount(accounts.get(0));
