@@ -146,8 +146,8 @@ public class BudgetTest {
         LocalDateTime now = LocalDateTime.now();
         budget.setCreated(now);
         
-        assertTrue("The date should be in the past", budget.getCreated().isBefore(now) || 
-                                                     budget.getCreated().isEqual(LocalDateTime.now()));
+        assertTrue("The date should be in the past\nCreated: " + budget.getCreated().toString() + "\nnow: " + now.toString(), budget.getCreated().isBefore(now) || 
+                                                     budget.getCreated().isEqual(now));
         
         LocalDateTime fiveDays = LocalDateTime.now().plusDays(5);
         budget.setCreated(fiveDays);
@@ -164,6 +164,8 @@ public class BudgetTest {
         }
         
         budget.setAccounts(accounts);
+        
+        // TODO Test cloning and method side effects
         assertNotNull("Account list should be present.", budget.getAccounts());
         assertEquals("Account lists should be equals", accounts, budget.getAccounts());
         assertEquals("There should be 5 accounts in the list", 5, budget.getAccounts().size());
@@ -179,6 +181,8 @@ public class BudgetTest {
         }
         
         budget.setGroups(groups);
+        
+        // TODO Test cloning and method side effects
         assertNotNull("Group list should be present.", budget.getGroups());
         assertEquals("Group lists should be equals", groups, budget.getGroups());
         assertEquals("There should be 5 groups in the list", 5, budget.getGroups().size());
@@ -205,13 +209,15 @@ public class BudgetTest {
         List<Account> accounts = new ArrayList<>();
         
         for (int i = 0 ; i < 5 ; i++) {
-            budget.addAccount(new Account());
+            accounts.add(new Account());
         }
         
+        budget.setAccounts(accounts);
         budget.removeAccount(accounts.get(0));
         
         assertNotNull("Account list should be present.", budget.getAccounts());
-        assertEquals("There should be 4 accounts in the list", 5, budget.getAccounts().size());
+        assertEquals("There should be 4 accounts in the list", 4, budget.getAccounts().size());
+        assertTrue("Account " + accounts.get(0).getName() + " should not be present.", !budget.getAccounts().contains(accounts.get(0)));
     }
     
     @Test
@@ -227,7 +233,19 @@ public class BudgetTest {
     
     @Test
     public void testRemoveGroup() {
-        fail("Unimplemented");
+        Budget budget = new Budget();
+        List<Group> groups = new ArrayList<>();
+        
+        for (int i = 0 ; i < 5 ; i++) {
+            groups.add(new Group());
+        }
+        
+        budget.setGroups(groups);
+        budget.removeGroup(groups.get(0));
+        
+        assertNotNull("Group list should be present.", budget.getGroups());
+        assertEquals("There should be 4 groups in the list", 4, budget.getGroups().size());
+        assertTrue("Group " + groups.get(0).getName() + " should not be present.", budget.getGroups().contains(groups.get(0)));
     }
     
     @Test

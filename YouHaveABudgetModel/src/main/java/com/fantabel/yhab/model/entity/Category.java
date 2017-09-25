@@ -4,9 +4,8 @@ import com.fantabel.yhab.model.util.IdUtil;
 
 import java.io.Serializable;
 
-import java.util.UUID;
-
 public class Category implements Serializable {
+    @SuppressWarnings("compatibility:-928508414734957137")
     private static final long serialVersionUID = 1L;
     private Long id;
     private String name;

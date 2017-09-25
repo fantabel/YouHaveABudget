@@ -8,8 +8,6 @@ import java.math.BigDecimal;
 
 import java.time.LocalDate;
 
-import java.util.UUID;
-
 public class Goal implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;

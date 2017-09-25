@@ -8,10 +8,10 @@ import java.time.LocalDateTime;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 
 public class Budget implements Serializable {
+    @SuppressWarnings("compatibility:8178657080043044910")
     private static final long serialVersionUID = 1L;
 
     private Long id;
