@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import java.util.UUID;
 
-public class ReccurentTransaction implements Serializable {
+public class ReccurentTransactionTest implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
 

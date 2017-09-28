@@ -13,7 +13,7 @@ public class AccountTest {
      */
     @Test
     public void testGetId() {
-        //fail("Unimplemented");
+        fail("Unimplemented");
     }
 
     /**
@@ -21,7 +21,7 @@ public class AccountTest {
      */
     @Test
     public void testSetId() {
-        //fail("Unimplemented");
+        fail("Unimplemented");
     }
 
     /**
